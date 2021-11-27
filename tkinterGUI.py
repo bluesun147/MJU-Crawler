@@ -124,6 +124,10 @@ sb.config(command=lb.yview)
 
 entAddAccount = Entry(root, width=30)
 entAddAccount.insert(0, "추가할 계정")
+def entryclear(event):
+    if entAddAccount.get() == "추가할 계정":    # 초기값인 경우 마우스클릭하면 지워지도록,...
+        entAddAccount.delete(0,len(entAddAccount.get()))
+entAddAccount.bind("<Button-1>", entryclear)  # 마우스를 클릭하면 entryclear를 동작시켜라. 
 entAddAccount.pack()
 
 button_frame = Frame(root)
