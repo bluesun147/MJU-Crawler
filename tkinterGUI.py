@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
-
+from PIL import ImageTk
 
 
 # 파이썬 gui tkinter
@@ -43,10 +43,23 @@ def printList(): # 추가 사이트 선택한것들 출력
     
     
 root = Tk() # 전체 화면
-root.geometry('500x750+850+5') # 가로 x 세로 + x좌표 + y좌표
+root.geometry('500x770+850+5') # 가로 x 세로 + x좌표 + y좌표
 root.title('명지대 크롤러')
-root.config(bg='#1271b5') # background 배경, config 변경
+root.config(bg='#3c72b5') # background 배경, config 변경
 root.resizable(width=False, height=False)
+
+'''lab_d = Label(root)
+img = ImageTk.PhotoImage(file = "C:\\Users\\blues\\OneDrive\바탕화~1-DESKTOP-9RO8JPH-8531-DESKTOP-9RO8JPH\lizard\\5_5.jpg", master= root)
+#img = img.subsample(10)
+lab_d.config(image =img)
+lab_d.pack()'''
+width = 100
+height = 100
+canvas = Canvas(root, width=width, height=height)
+canvas.pack()
+img_path = ImageTk.PhotoImage(file = "img\mju.jpg", master= root)
+shapes = canvas.create_image(width/2, height/2, image = img_path)
+
 
 entId = Entry(root, width=30) # 아이디 입력
 entId.insert(0, "enter id")
@@ -54,7 +67,7 @@ def entryclear(event):
     if entId.get() == "enter id":    # 초기값인 경우 마우스클릭하면 지워지도록,...
         entId.delete(0,len(entId.get()))
 entId.bind("<Button-1>", entryclear)  # 마우스를 클릭하면 entryclear를 동작시켜라. 
-entId.pack(pady=20)
+entId.pack(pady=10)
 
 entPw = Entry(root, show="*", width=30) # 비밀번호 입력
 entPw.insert(0, "password")
@@ -62,7 +75,7 @@ def entryclear(event):
     if entPw.get() == "password":    # 초기값인 경우 마우스클릭하면 지워지도록,...
         entPw.delete(0,len(entPw.get()))
 entPw.bind("<Button-1>", entryclear)  # 마우스를 클릭하면 entryclear를 동작시켜라. 
-entPw.pack(pady=20)
+entPw.pack(pady=10)
 entPw.pack()
 
 sns_button_frame = Frame(root) # 인스타, 페북 버튼 두개 프레임

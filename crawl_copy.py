@@ -13,7 +13,7 @@ from PIL import ImageTk
 import tkinterSep
 
 
-# python crawl.py -n 3
+# python crawl_copy.py -n 3
 
 # https://hyebit.tistory.com/49
  # 파일 경로와 데이터를 매개변수로 받아서 파일 작성.
